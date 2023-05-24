@@ -312,6 +312,7 @@ class Home extends StatelessWidget {
       ),
       floatingActionButton: const FloatingActionButton(
         onPressed: null,
+        backgroundColor: Colors.indigo,
         child: Text(
           'Help',
           style: TextStyle(
