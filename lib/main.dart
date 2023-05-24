@@ -13,6 +13,7 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.indigo[900],
         leading: const IconButton(
           onPressed: null,
           icon: Icon(Icons.menu),
@@ -28,6 +29,22 @@ class Home extends StatelessWidget {
           ),
         ),
         centerTitle: true,
+        actions: const <Widget>[
+          IconButton(
+            onPressed: null,
+            icon: Icon(Icons.settings),
+            iconSize: 30.0,
+            tooltip: 'Settings',
+            color: Colors.black,
+          ),
+          IconButton(
+            onPressed: null,
+            icon: Icon(Icons.person_2_rounded),
+            iconSize: 30.0,
+            tooltip: 'Account',
+            color: Colors.black,
+          ),
+        ],
       ),
       body: ListView(
         children: <Widget>[
