@@ -1,327 +1,135 @@
-// ignore_for_file: avoid_unnecessary_containers
-
 import 'package:flutter/material.dart';
 
 void main() => runApp(const MaterialApp(
       home: Home(),
     ));
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
   const Home({super.key});
+
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  int _level = 3;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey[900],
       appBar: AppBar(
-        backgroundColor: Colors.indigo[900],
         leading: const IconButton(
           onPressed: null,
-          icon: Icon(Icons.menu),
-          tooltip: 'Navigation',
-          color: Colors.white,
-          iconSize: 30.0,
+          icon: Icon(Icons.home),
+          tooltip: 'Menu',
+          color: Colors.blue,
         ),
-        title: const Text(
-          'Maye App',
-          style: TextStyle(
-            fontSize: 23.0,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
+        title: const Text('Ninja App'),
         centerTitle: true,
+        backgroundColor: Colors.grey[850],
+        elevation: 0,
         actions: const <Widget>[
           IconButton(
             onPressed: null,
-            icon: Icon(Icons.settings),
-            iconSize: 30.0,
-            tooltip: 'Settings',
-            color: Colors.white,
-          ),
-          IconButton(
-            onPressed: null,
-            icon: Icon(Icons.person_2_rounded),
-            iconSize: 30.0,
-            tooltip: 'Account',
-            color: Colors.white,
-          ),
+            icon: Icon(Icons.search),
+            color: Colors.blue,
+            tooltip: 'Search',
+          )
         ],
       ),
       body: ListView(
-        children: <Widget>[
-          Expanded(
-              child: Container(
-            padding: const EdgeInsets.fromLTRB(17.0, 30.0, 17.0, 30.0),
-            margin: const EdgeInsets.all(25.0),
-            decoration: BoxDecoration(
-              border: Border.all(),
-              color: Colors.indigo[900],
-              borderRadius: const BorderRadius.all(
-                Radius.circular(17.0),
-              ),
-            ),
-            height: 230,
-            child: const Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Text(
-                  'Maye Contact Card.',
-                  style: TextStyle(
-                    fontSize: 23.0,
-                    fontWeight: FontWeight.bold,
-                    wordSpacing: 2,
-                    color: Colors.white,
+        children: [
+          Padding(
+            padding: const EdgeInsets.fromLTRB(20, 30, 20, 30),
+            child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  const Center(
+                    child: CircleAvatar(
+                      backgroundImage: AssetImage("assets/img.jpg"),
+                      radius: 40.0,
+                    ),
                   ),
-                ),
-                Divider(
-                  thickness: 2.0,
-                  color: Colors.white,
-                ),
-                Text(
-                  'Name:Maye Innocent',
-                  style: TextStyle(
-                    fontSize: 17.0,
-                    fontWeight: FontWeight.w400,
-                    color: Colors.white,
+                  const SizedBox(
+                    height: 90.0,
                   ),
-                ),
-                Text(
-                  'Id:40185261',
-                  style: TextStyle(
-                    fontSize: 17.0,
-                    fontWeight: FontWeight.w400,
-                    color: Colors.white,
+                  const Text(
+                    'Name',
+                    style: TextStyle(
+                      color: Colors.grey,
+                      letterSpacing: 2.0,
+                    ),
                   ),
-                ),
-                Text(
-                  'Age:20',
-                  style: TextStyle(
-                    fontSize: 17.0,
-                    fontWeight: FontWeight.w400,
-                    color: Colors.white,
+                  const SizedBox(
+                    height: 10.0,
                   ),
-                ),
-                Text(
-                  'Tell:0796331359',
-                  style: TextStyle(
-                    fontSize: 17.0,
-                    fontWeight: FontWeight.w400,
-                    color: Colors.white,
+                  const Text(
+                    'Maye Innocent',
+                    style: TextStyle(
+                      color: Colors.amberAccent,
+                      letterSpacing: 2.0,
+                      fontSize: 20.0,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                ),
-                Text(
-                  'Email:innocentmuhavimaye@gmail.com',
-                  style: TextStyle(
-                    fontSize: 17.0,
-                    fontWeight: FontWeight.w400,
-                    color: Colors.white,
+                  const SizedBox(
+                    height: 30.0,
                   ),
-                ),
-              ],
-            ),
-          )),
-          Expanded(
-              child: Container(
-            padding: const EdgeInsets.fromLTRB(17.0, 30.0, 17.0, 30.0),
-            margin: const EdgeInsets.all(25.0),
-            decoration: BoxDecoration(
-              border: Border.all(),
-              borderRadius: const BorderRadius.all(
-                Radius.circular(17.0),
-              ),
-            ),
-            height: 230,
-            child: const Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Text(
-                  'Maye Contact Card.',
-                  style: TextStyle(
-                    fontSize: 23.0,
-                    fontWeight: FontWeight.bold,
-                    wordSpacing: 2,
+                  const Text(
+                    'Current Level',
+                    style: TextStyle(
+                      color: Colors.grey,
+                      letterSpacing: 2.0,
+                    ),
                   ),
-                ),
-                Divider(
-                  thickness: 2.0,
-                ),
-                Text(
-                  'Name:Maye Innocent',
-                  style: TextStyle(
-                    fontSize: 17.0,
-                    fontWeight: FontWeight.w400,
+                  const SizedBox(
+                    height: 10.0,
                   ),
-                ),
-                Text(
-                  'Id:40185261',
-                  style: TextStyle(
-                    fontSize: 17.0,
-                    fontWeight: FontWeight.w400,
+                  Text(
+                    '$_level',
+                    style: const TextStyle(
+                      color: Colors.amberAccent,
+                      letterSpacing: 2.0,
+                      fontSize: 20.0,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                ),
-                Text(
-                  'Age:20',
-                  style: TextStyle(
-                    fontSize: 17.0,
-                    fontWeight: FontWeight.w400,
+                  const SizedBox(
+                    height: 30.0,
                   ),
-                ),
-                Text(
-                  'Tell:0796331359',
-                  style: TextStyle(
-                    fontSize: 17.0,
-                    fontWeight: FontWeight.w400,
+                  const Row(
+                    children: <Widget>[
+                      Icon(
+                        Icons.email,
+                        color: Colors.grey,
+                      ),
+                      SizedBox(
+                        width: 11.0,
+                      ),
+                      Text(
+                        'innocentmuhavimaye@gmail.com',
+                        style: TextStyle(
+                          color: Colors.grey,
+                          fontSize: 18.0,
+                        ),
+                      )
+                    ],
                   ),
-                ),
-                Text(
-                  'Email:innocentmuhavimaye@gmail.com',
-                  style: TextStyle(
-                    fontSize: 17.0,
-                    fontWeight: FontWeight.w400,
-                  ),
-                ),
-              ],
-            ),
-          )),
-          Expanded(
-              child: Container(
-            padding: const EdgeInsets.fromLTRB(17.0, 30.0, 17.0, 30.0),
-            margin: const EdgeInsets.all(25.0),
-            decoration: BoxDecoration(
-              border: Border.all(),
-              borderRadius: const BorderRadius.all(
-                Radius.circular(17.0),
-              ),
-            ),
-            height: 230,
-            child: const Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Text(
-                  'Maye Contact Card',
-                  style: TextStyle(
-                    fontSize: 23.0,
-                    fontWeight: FontWeight.bold,
-                    wordSpacing: 2,
-                  ),
-                ),
-                Divider(
-                  thickness: 2.0,
-                ),
-                Text(
-                  'Name:Maye Innocent',
-                  style: TextStyle(
-                    fontSize: 17.0,
-                    fontWeight: FontWeight.w400,
-                  ),
-                ),
-                Text(
-                  'Id:40185261',
-                  style: TextStyle(
-                    fontSize: 17.0,
-                    fontWeight: FontWeight.w400,
-                  ),
-                ),
-                Text(
-                  'Age:20',
-                  style: TextStyle(
-                    fontSize: 17.0,
-                    fontWeight: FontWeight.w400,
-                  ),
-                ),
-                Text(
-                  'Tell:0796331359',
-                  style: TextStyle(
-                    fontSize: 17.0,
-                    fontWeight: FontWeight.w400,
-                  ),
-                ),
-                Text(
-                  'Email:innocentmuhavimaye@gmail.com',
-                  style: TextStyle(
-                    fontSize: 17.0,
-                    fontWeight: FontWeight.w400,
-                  ),
-                ),
-              ],
-            ),
-          )),
-          Expanded(
-              child: Container(
-            padding: const EdgeInsets.fromLTRB(17.0, 30.0, 17.0, 30.0),
-            margin: const EdgeInsets.all(25.0),
-            decoration: BoxDecoration(
-              border: Border.all(),
-              borderRadius: const BorderRadius.all(
-                Radius.circular(17.0),
-              ),
-            ),
-            height: 230,
-            child: const Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Text(
-                  'Maye Contact Card',
-                  style: TextStyle(
-                    fontSize: 23.0,
-                    fontWeight: FontWeight.bold,
-                    wordSpacing: 2,
-                  ),
-                ),
-                Divider(
-                  thickness: 2.0,
-                ),
-                Text(
-                  'Name:Maye Innocent',
-                  style: TextStyle(
-                    fontSize: 17.0,
-                    fontWeight: FontWeight.w400,
-                  ),
-                ),
-                Text(
-                  'Id:40185261',
-                  style: TextStyle(
-                    fontSize: 17.0,
-                    fontWeight: FontWeight.w400,
-                  ),
-                ),
-                Text(
-                  'Age:20',
-                  style: TextStyle(
-                    fontSize: 17.0,
-                    fontWeight: FontWeight.w400,
-                  ),
-                ),
-                Text(
-                  'Tell:0796331359',
-                  style: TextStyle(
-                    fontSize: 17.0,
-                    fontWeight: FontWeight.w400,
-                  ),
-                ),
-                Text(
-                  'Email:innocentmuhavimaye@gmail.com',
-                  style: TextStyle(
-                    fontSize: 17.0,
-                    fontWeight: FontWeight.w400,
-                  ),
-                ),
-              ],
-            ),
-          ))
+                ]),
+          ),
+          // This trailing comma makes auto-formatting nicer for build methods.
         ],
       ),
-      floatingActionButton: const FloatingActionButton(
-        onPressed: null,
-        backgroundColor: Colors.indigo,
-        child: Text(
-          'Help',
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 18.0,
-            fontFamily: AutofillHints.birthday,
-            fontWeight: FontWeight.w900,
-          ),
-        ),
+      floatingActionButton: FloatingActionButton(
+        tooltip: 'Increment',
+        backgroundColor: Colors.black87,
+        onPressed: () {
+          setState(() {
+            _level++;
+          });
+        },
+        child: const Icon(Icons.add),
       ),
     );
   }
